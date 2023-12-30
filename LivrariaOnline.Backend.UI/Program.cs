@@ -48,10 +48,17 @@ app.MapGet("/weatherforecast", () =>
 .WithOpenApi();
 
 app.MapPost("/weatherforecast", async (RegisterUserUseCase registerUser, RegisterUserUseCase.SimpleRegister userDto) =>
-{
-    return await registerUser.Execute(userDto);
-})
+     await registerUser.Execute(userDto)
+)
 .WithName("RegisterUser")
+.WithOpenApi();
+
+app.MapPost("/login", async (LoginUserUseCase loginUser, LoginUserUseCase.SimpleLogin userDto) =>
+{
+    await loginUser.Execute(userDto);
+    return "Deu bom";
+})
+.WithName("Login user")
 .WithOpenApi();
 
 app.Run();
