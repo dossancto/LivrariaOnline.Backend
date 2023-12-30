@@ -6,10 +6,8 @@ public interface IUserRepository
 {
     Task<UserEntity> Save(UserEntity user);
 
-    Task<UserEntity> FindById(UserEntity user);
-    Task<UserEntity> FindByEmail(UserEntity user);
+    Task<UserEntity?> FindById(string id);
+    Task<UserEntity?> FindByEmail(string email);
 
     Task ConfirmEmail(string code, string userId);
-
-    Task<UserEntity> Login(string emailOrUser, string password);
 }

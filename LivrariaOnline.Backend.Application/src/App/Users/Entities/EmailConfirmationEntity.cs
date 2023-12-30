@@ -14,7 +14,7 @@ public class EmailConfirmationEntity
 
     public EmailConfirmationGenerationType GenerationType { get; set; }
 
-    public string UserId { get; set; } = default!;
+    public UserEntity User { get; set; } = default!;
 
     public bool Expired { get; set; }
 

@@ -6,7 +6,7 @@ public interface IUserConfirmationRepository
 {
     Task<EmailConfirmationEntity> Save(EmailConfirmationEntity user);
 
-    Task<EmailConfirmationEntity> GetByCode(string code, string userId);
+    Task<EmailConfirmationEntity?> GetByCode(string code, string userId);
 
     Task ConfirmCode(string code, string userId);
 }
