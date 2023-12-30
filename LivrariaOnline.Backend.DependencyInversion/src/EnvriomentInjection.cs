@@ -1,5 +1,5 @@
 using DotNetEnv;
-using LivrariaOnline.Backend.Infra.Database.EF.Contexts;
+using LivrariaOnline.Backend.Infra.Database;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LivrariaOnline.Backend.DependencyInversion;
@@ -10,7 +10,7 @@ public static class EnvriomentInjection
     {
         Env.TraversePath().Load();
 
-        services.AddScoped<ApplicationDbContext>();
+        services.AddDatabase();
 
         return services;
     }

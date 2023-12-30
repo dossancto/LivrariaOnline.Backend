@@ -9,7 +9,7 @@ public static class UsecaseInjection
     {
         services.AddScoped<RegisterUserUseCase>();
         services.AddScoped<LoginUserUseCase>();
-        // services.AddScoped<SendEmailConfirmCodeUseCase>();
+        services.AddScoped<SendEmailConfirmCodeUseCase>();
 
         return services;
     }

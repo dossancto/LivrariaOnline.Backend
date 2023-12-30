@@ -10,14 +10,13 @@ public class RegisterUserUseCase
 
     public readonly IUserRepository _userRepository;
     public readonly ICryptographysNoSalt _cryptographys;
-    // public readonly SendEmailConfirmCodeUseCase _sendConfirmation;
+    public readonly SendEmailConfirmCodeUseCase _sendConfirmation;
 
-    public RegisterUserUseCase(IUserRepository userRepository, ICryptographysNoSalt cryptographys)
+    public RegisterUserUseCase(IUserRepository userRepository, ICryptographysNoSalt cryptographys, SendEmailConfirmCodeUseCase sendConfirmation)
     {
         _userRepository = userRepository;
         _cryptographys = cryptographys;
-        // _cryptographys = cryptographys;
-        // _sendConfirmation = sendConfirmation;
+        _sendConfirmation = sendConfirmation;
     }
 
     public async Task<UserEntity> Execute(SimpleRegister userDto)
@@ -33,7 +32,7 @@ public class RegisterUserUseCase
 
         var registedUser = await _userRepository.Save(user);
 
-        // await _sendConfirmation.Execute(userDto.Email);
+        await _sendConfirmation.Execute(userDto.Email);
 
         return registedUser;
     }
