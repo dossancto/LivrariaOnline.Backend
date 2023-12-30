@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="Nanoid" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LivrariaOnline.Backend.Adapters\LivrariaOnline.Backend.Adapters.csproj" />
   </ItemGroup>
 
 </Project>

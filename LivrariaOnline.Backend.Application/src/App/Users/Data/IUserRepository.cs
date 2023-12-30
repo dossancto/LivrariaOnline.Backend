@@ -1,4 +1,4 @@
-using LivrariaOnline.Backend.Application.App.Entities;
+using LivrariaOnline.Backend.Application.App.Users.Entities;
 
 namespace LivrariaOnline.Backend.Application.App.Users.Data;
 
