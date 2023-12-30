@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
               .AddEnvironment()
+              .AddProviders()
               .AddDatabase()
               .AddRepositories()
               .AddUseCases();

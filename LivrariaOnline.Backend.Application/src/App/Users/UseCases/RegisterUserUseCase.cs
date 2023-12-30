@@ -9,12 +9,13 @@ public class RegisterUserUseCase
     public record SimpleRegister(string Email, string Name, string Password, DateTime BirthDate);
 
     public readonly IUserRepository _userRepository;
-    // public readonly ICryptographys _cryptographys;
+    public readonly ICryptographysNoSalt _cryptographys;
     // public readonly SendEmailConfirmCodeUseCase _sendConfirmation;
 
-    public RegisterUserUseCase(IUserRepository userRepository)
+    public RegisterUserUseCase(IUserRepository userRepository, ICryptographysNoSalt cryptographys)
     {
         _userRepository = userRepository;
+        _cryptographys = cryptographys;
         // _cryptographys = cryptographys;
         // _sendConfirmation = sendConfirmation;
     }
@@ -23,10 +24,10 @@ public class RegisterUserUseCase
     {
         var user = UserDtoToModel(userDto);
 
-        // var (hashedPasword, salt) = _cryptographys.HashPassword(userDto.Password);
+        var hashedPasword = _cryptographys.HashPassword(userDto.Password);
 
-        user.HashedPassword = userDto.Password;
-        user.Salt = "seguro sim";
+        user.HashedPassword = hashedPasword;
+        user.Salt = "<no-used>";
 
         user.Roles = new() { "User" };
 
