@@ -28,6 +28,8 @@ public class RegisterUserUseCase
         user.HashedPassword = userDto.Password;
         user.Salt = "seguro sim";
 
+        user.Roles = new() { "User" };
+
         var registedUser = await _userRepository.Save(user);
 
         // await _sendConfirmation.Execute(userDto.Email);
