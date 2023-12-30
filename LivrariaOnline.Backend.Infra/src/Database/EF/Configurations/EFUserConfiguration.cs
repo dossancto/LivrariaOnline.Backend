@@ -28,6 +28,6 @@ public class UserConfiguration : IEntityTypeConfiguration<EFUserEntity>
         builder.Ignore(x => x.Roles);
 
         builder.Property(x => x.CreatedAt).ValueGeneratedOnAdd();
-        builder.Property(x => x.UpdatedAt).ValueGeneratedOnAddOrUpdate();
+        builder.Property(x => x.UpdatedAt).ValueGeneratedOnAdd();
     }
 }

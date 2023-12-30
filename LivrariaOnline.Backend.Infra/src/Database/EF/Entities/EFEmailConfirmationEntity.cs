@@ -8,6 +8,8 @@ public class EFEmailConfirmationEntity : EmailConfirmationEntity
     public string UserId { get; set; } = default!;
     public new EFUserEntity User { get; set; } = default!;
 
+    public EFEmailConfirmationEntity() { }
+
     public EFEmailConfirmationEntity(EmailConfirmationEntity x)
     {
         Id = x.Id ?? IdGenerator.GenerateId();

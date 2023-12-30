@@ -21,5 +21,6 @@ public class EFUserAddressConfiguration : IEntityTypeConfiguration<EFUserAddress
 
         builder.HasOne(a => a.User)
           .WithOne(b => b.Address);
+
     }
 }

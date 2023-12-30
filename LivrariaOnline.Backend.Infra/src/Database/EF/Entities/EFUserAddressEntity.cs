@@ -9,6 +9,8 @@ public class EFUserAddressEntity : UserAddressEntity
 
     public EFUserEntity User { get; set; } = default!;
 
+    public EFUserAddressEntity(){}
+
     public EFUserAddressEntity(UserAddressEntity x)
     {
         Id = IdGenerator.GenerateId();

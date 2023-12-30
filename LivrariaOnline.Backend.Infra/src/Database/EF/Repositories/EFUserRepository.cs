@@ -4,6 +4,7 @@ using LivrariaOnline.Backend.Application.App.Users.Enum;
 using LivrariaOnline.Backend.Infra.Database.EF.Contexts;
 using LivrariaOnline.Backend.Infra.Database.EF.Entities;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace LivrariaOnline.Backend.Infra.Database.EF.Repositories;
 
@@ -47,7 +48,12 @@ public class EFUserRepository : IUserRepository
     {
         var efUser = new EFUserEntity(user);
 
-        _context.UserAddress.Add(efUser.Address);
+        Console.WriteLine(JsonConvert.SerializeObject(efUser));
+
+        // if (efUser.Address is not null)
+        // {
+        //     _context.UserAddress.Add(efUser.Address);
+        // }
 
         _context.Users.Add(efUser);
 

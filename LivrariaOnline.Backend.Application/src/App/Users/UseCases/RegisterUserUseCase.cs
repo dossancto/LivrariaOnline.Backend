@@ -6,38 +6,40 @@ namespace LivrariaOnline.Backend.Application.App.Users.UseCases;
 
 public class RegisterUserUseCase
 {
-    public record SimpleRegister(string Email, string Password);
+    public record SimpleRegister(string Email, string Name, string Password, DateTime BirthDate);
 
     public readonly IUserRepository _userRepository;
-    public readonly ICryptographys _cryptographys;
-    public readonly SendEmailConfirmCodeUseCase _sendConfirmation;
+    // public readonly ICryptographys _cryptographys;
+    // public readonly SendEmailConfirmCodeUseCase _sendConfirmation;
 
-    public RegisterUserUseCase(IUserRepository userRepository, ICryptographys cryptographys, SendEmailConfirmCodeUseCase sendConfirmation)
+    public RegisterUserUseCase(IUserRepository userRepository)
     {
         _userRepository = userRepository;
-        _cryptographys = cryptographys;
-        _sendConfirmation = sendConfirmation;
+        // _cryptographys = cryptographys;
+        // _sendConfirmation = sendConfirmation;
     }
 
     public async Task<UserEntity> Execute(SimpleRegister userDto)
     {
         var user = UserDtoToModel(userDto);
 
-        var (hashedPasword, salt) = _cryptographys.HashPassword(userDto.Password);
+        // var (hashedPasword, salt) = _cryptographys.HashPassword(userDto.Password);
 
-        user.HashedPassword = hashedPasword;
-        user.Salt = salt;
+        user.HashedPassword = userDto.Password;
+        user.Salt = "seguro sim";
 
         var registedUser = await _userRepository.Save(user);
 
-        await _sendConfirmation.Execute(userDto.Email);
+        // await _sendConfirmation.Execute(userDto.Email);
 
         return registedUser;
     }
 
-    private UserEntity UserDtoToModel(SimpleRegister dto)
+    private UserEntity UserDtoToModel(SimpleRegister x)
     => new()
     {
-        Email = dto.Email
+        Email = x.Email,
+        Name = x.Name,
+        BirthDate = x.BirthDate,
     };
 }

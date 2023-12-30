@@ -6,11 +6,15 @@ namespace LivrariaOnline.Backend.Infra.Database.EF.Entities;
 
 public class EFUserEntity : UserEntity
 {
-    public string RolesJson { get; set; } = default!;
+    public string RolesJson { get; set; } = "[]";
 
     public string? AddressId { get; set; } = default!;
 
     public new EFUserAddressEntity Address { get; set; } = default!;
+
+    public new DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+    public EFUserEntity() { }
 
     public EFUserEntity(UserEntity x)
     {

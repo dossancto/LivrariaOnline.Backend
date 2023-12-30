@@ -11,15 +11,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<EFUserAddressEntity> UserAddress { get; set; } = default!;
     public DbSet<EFEmailConfirmationEntity> UserEmailConfirmation { get; set; } = default!;
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        base.OnConfiguring(options);
-
-        var connectionString = Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING");
-
-        options.UseNpgsql(connectionString);
-    }
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
