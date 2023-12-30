@@ -30,9 +30,9 @@ public class RegisterUserUseCase
 
         user.Roles = new() { "User" };
 
-        var registedUser = await _userRepository.Save(user);
-
         await _sendConfirmation.Execute(userDto.Email);
+
+        var registedUser = await _userRepository.Save(user);
 
         return registedUser;
     }

@@ -18,7 +18,7 @@ public class DevelopmentEmailSender : IEmailSender
     {
         var msg = $"Email code for \"{targetEmail}\" is -> {code} <- ";
 
-        _logger.LogDebug(msg);
+        _logger.LogInformation(msg);
 
         return Task.CompletedTask;
     }

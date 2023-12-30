@@ -48,12 +48,10 @@ public class EFUserRepository : IUserRepository
     {
         var efUser = new EFUserEntity(user);
 
-        Console.WriteLine(JsonConvert.SerializeObject(efUser));
-
-        // if (efUser.Address is not null)
-        // {
-        //     _context.UserAddress.Add(efUser.Address);
-        // }
+        if (efUser.Address is not null)
+        {
+            _context.UserAddress.Add(efUser.Address);
+        }
 
         _context.Users.Add(efUser);
 
