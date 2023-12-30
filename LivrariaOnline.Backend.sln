@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaOnline.Backend.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaOnline.Backend.Infra", "LivrariaOnline.Backend.Infra\LivrariaOnline.Backend.Infra.csproj", "{E1380E22-87FF-4001-AACE-C25DDD725C3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaOnline.Backend.UI", "LivrariaOnline.Backend.UI\LivrariaOnline.Backend.UI.csproj", "{4335D073-8C13-46DE-950A-9F03AACBE7C5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaOnline.Backend.DependencyInversion", "LivrariaOnline.Backend.DependencyInversion\LivrariaOnline.Backend.DependencyInversion.csproj", "{D09AAA20-55A9-46AD-9F30-B1D56D680EEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaOnline.Backend.UI", "LivrariaOnline.Backend.UI\LivrariaOnline.Backend.UI.csproj", "{944599E1-7A90-4D6F-AD38-2AB2532DD579}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,13 +34,13 @@ Global
 		{E1380E22-87FF-4001-AACE-C25DDD725C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1380E22-87FF-4001-AACE-C25DDD725C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1380E22-87FF-4001-AACE-C25DDD725C3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4335D073-8C13-46DE-950A-9F03AACBE7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4335D073-8C13-46DE-950A-9F03AACBE7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4335D073-8C13-46DE-950A-9F03AACBE7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4335D073-8C13-46DE-950A-9F03AACBE7C5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D09AAA20-55A9-46AD-9F30-B1D56D680EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D09AAA20-55A9-46AD-9F30-B1D56D680EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D09AAA20-55A9-46AD-9F30-B1D56D680EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D09AAA20-55A9-46AD-9F30-B1D56D680EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944599E1-7A90-4D6F-AD38-2AB2532DD579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944599E1-7A90-4D6F-AD38-2AB2532DD579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944599E1-7A90-4D6F-AD38-2AB2532DD579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944599E1-7A90-4D6F-AD38-2AB2532DD579}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

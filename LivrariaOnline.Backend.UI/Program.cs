@@ -1,20 +1,11 @@
-using LivrariaOnline.Backend.DependencyInversion;
-using LivrariaOnline.Backend.Application.App.Users.UseCases;
-using LivrariaOnline.Backend.Infra.Database;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services
-              .AddEnvironment()
-              .AddProviders()
-              .AddDatabase()
-              .AddRepositories()
-              .AddUseCases();
 
 var app = builder.Build();
 
@@ -27,43 +18,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
-app.MapPost("/weatherforecast", async (RegisterUserUseCase registerUser, RegisterUserUseCase.SimpleRegister userDto) =>
-     await registerUser.Execute(userDto)
-)
-.WithName("RegisterUser")
-.WithOpenApi();
-
-app.MapPost("/login", async (LoginUserUseCase loginUser, LoginUserUseCase.SimpleLogin userDto) =>
-{
-    await loginUser.Execute(userDto);
-    return "Deu bom";
-})
-.WithName("Login user")
-.WithOpenApi();
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
