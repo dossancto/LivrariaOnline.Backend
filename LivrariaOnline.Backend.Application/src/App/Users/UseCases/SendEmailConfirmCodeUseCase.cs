@@ -11,6 +11,7 @@ public class SendEmailConfirmCodeUseCase
     public readonly IUserRepository _userRepository;
 
     public readonly int CODE_SIZE = 4;
+    public readonly string ID_VALID_CHARACTERs = "1234567890";
 
     public SendEmailConfirmCodeUseCase(IEmailSender emailSender, IUserConfirmationRepository confirmCodeRepository, IUserRepository userRepository)
     {
@@ -21,7 +22,7 @@ public class SendEmailConfirmCodeUseCase
 
     public async Task Execute(string targetEmail)
     {
-        var code = Nanoid.Generate("1234567890", size: CODE_SIZE);
+        var code = Nanoid.Generate(ID_VALID_CHARACTERs, size: CODE_SIZE);
 
         await _emailSender.SendEmailConfirmationCode(targetEmail, code);
     }
